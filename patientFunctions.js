@@ -257,10 +257,10 @@ const recordCount = (patients) => {
         let plural
         msg =`(${patients.length}) Patient${patients.length === 1 ? plural = '': plural = 's' }`
     }
-    if (CAPACITY === patients.length) {
-        fullWarning = 'No Rooms Available'
-        disableForm()
-    }
+    // if (CAPACITY === patients.length) {
+    //     fullWarning = 'No Rooms Available'
+    //     disableForm()
+    // }
     openBeds.textContent = fullWarning
     openBeds.style.color = 'red'
     remainingBeds.textContent = `${CAPACITY - patients.length} available`
