@@ -249,7 +249,7 @@ const recordCount = (patients) => {
     let fullWarning
 
     //message formating if the record count is 1 or 0
-    if(patients.length <= 0 ) {
+    if(!patients) {
         msg = 'none found'
         patientCount.textContent = msg
     }  
