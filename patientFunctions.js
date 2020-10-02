@@ -1,4 +1,4 @@
-// let dummyData = [{name:'xxx',age:123,gender:'xxx',room:'xxx'}]
+let dummyData = [{name:'xxx',age:123,gender:'xxx',room:'xxx'}]
 //  get data from local storage
 const getPatients = () => {
 	// fetch the records from local storage...
@@ -8,7 +8,7 @@ const getPatients = () => {
         // if there's data in local storage return it
         return JSON.parse(patientsJSON)
     } catch (error) {
-        return []
+        return dummyData
     }
 }
 // stringifies the dataset and saves it to local storage
