@@ -253,7 +253,7 @@ const recordCount = (patients) => {
         msg = 'none found'
         patientCount.textContent = msg
     }  
-    if(patients.length > 0 ){
+    if(patients ){
         let plural
         msg =`(${patients.length}) Patient${patients.length === 1 ? plural = '': plural = 's' }`
     }
