@@ -1,14 +1,20 @@
-
+const dummyData = () => {
+    let Data = [{name:'ooo',age:000,gender:'o',room:'000'}]
+    
+    localStorage.setItem('patients',JSON.stringify(Data))
+    let dataJSON = localStorage.getItem('patients')
+        return JSON.parse(dataJSON)
+}
 //  get data from local storage
 const getPatients = () => {
     // fetch the records from local storage...
-    // let dummyData = [{name:'xxx',age:123,gender:'xxx',room:'xxx'}]
     const patientsJSON = localStorage.getItem('patients')
+
     try {
         // if there's data in local storage return it
-        return patientsJSON ? JSON.parse(patientsJSON) : []
+        return patientsJSON ? JSON.parse(patientsJSON) : dummyData()
     } catch (error) {
-        return []
+        return dummyData()
         
      }
 }
