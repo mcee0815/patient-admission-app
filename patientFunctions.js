@@ -1,16 +1,20 @@
-let dummyData = [{name:'xxx',age:123,gender:'xxx',room:'xxx'}]
+
 //  get data from local storage
 const getPatients = () => {
-	// fetch the records from local storage...
+    // fetch the records from local storage...
+    // let dummyData = [{name:'xxx',age:123,gender:'xxx',room:'xxx'}]
     const patientsJSON = localStorage.getItem('patients')
-    
     try {
         // if there's data in local storage return it
-        return JSON.parse(patientsJSON)
+        return patientsJSON ? JSON.parse(patientsJSON) : []
     } catch (error) {
-        return dummyData
-    }
+        return []
+        
+     }
 }
+
+
+
 // stringifies the dataset and saves it to local storage
 const savePatients = () => localStorage.setItem('patients',JSON.stringify(patients))
 
@@ -173,7 +177,7 @@ const sortAlphabeticaly = (patientsArr,option) => {
 }
 // loop thru and display the patient records when the browser loads
 const getAllRecords = (patients) => {
-    recordCount(patients)
+        recordCount(patients)
 	patients.forEach((p) => {
         // span element to hold the delete button and future buttons 
         let btnSpan = document.createElement('span')
@@ -253,14 +257,14 @@ const recordCount = (patients) => {
         msg = 'none found'
         patientCount.textContent = msg
     }  
-    if(patients ){
+    if(patients > 0 ){
         let plural
         msg =`(${patients.length}) Patient${patients.length === 1 ? plural = '': plural = 's' }`
     }
-    // if (CAPACITY === patients.length) {
-    //     fullWarning = 'No Rooms Available'
-    //     disableForm()
-    // }
+    if (CAPACITY === patients.length) {
+        fullWarning = 'No Rooms Available'
+        disableForm()
+    }
     openBeds.textContent = fullWarning
     openBeds.style.color = 'red'
     remainingBeds.textContent = `${CAPACITY - patients.length} available`

@@ -2,6 +2,7 @@
 
 let patients = getPatients()
 
+
 // start the app by displaying the most recent patients list...
 let recentpatients = sortBySelection(patients,'default')
 	progressBar(recentpatients)  
